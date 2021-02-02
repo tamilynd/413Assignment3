@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a asp-action="Index">Home</a></li>
+                <li><a asp-action="Podcast">My Podcast</a></li>
+                <li><a asp-action="MovieForm">Movie Form</a></li>
+                <li><a asp-action="MovieList">Movie List</a></li>
+            </ul>
+        </nav>
+    </header>
+    @RenderBody()
+    <footer>
+        <p>This is my 413 Assignment 3 Web App</p>
+    </footer>
+</body>
+</html>
