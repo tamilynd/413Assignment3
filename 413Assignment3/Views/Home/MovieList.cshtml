@@ -5,28 +5,50 @@
     ViewBag.Title = "Joel's Movie List";
 }
 
-@model IEnumerable<MovieForm>
+@model IEnumerable<Movie>
 
-<div>
+<div style="width:80%;text-align:center">
     <h2> @ViewBag.Title</h2>
-    <table>
-        <thead>
-            <tr><th>Category</th><th>Title</th><th>Year</th><th>Director</th><th>Rating</th><th>Edited</th><th>Lent To</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-            @foreach (MovieForm x in Model)
-            {
-                <tr>
-                    <td>@x.Category</td>
-                    <td>@x.Title</td>
-                    <td>@x.Year</td>
-                    <td>@x.Director</td>
-                    <td>@x.Rating</td>
-                    <td>@x.Edited</td>
-                    <td>@x.LentTo</td>
-                    <td>@x.Notes</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <table class="table-striped w-100 m-3">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="d-md-table-cell col-md-3">Category</th>
+                        <th class="d-md-table-cell col-md-3">Title</th>
+                        <th class="d-md-table-cell col-md-3">Year</th>
+                        <th class="d-md-table-cell col-md-3">Director</th>
+                        <th class="d-md-table-cell col-md-3">Rating</th>
+                        <th class="d-md-table-cell col-md-3">Edited</th>
+                        <th class="d-md-table-cell col-md-3">Lent To</th>
+                        <th class="d-md-table-cell col-md-3">Notes</th>
+                        <th class="col-1"></th>
+                        <th class="col-1"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Movie x in Model)
+                    {
+                        <tr>
+                            <td class="col-md-3">@x.Category</td>
+                            <td class="col-md-3">@x.Title</td>
+                            <td class="col-md-3">@x.Year</td>
+                            <td class="col-md-3">@x.Director</td>
+                            <td class="col-md-3">@x.Rating</td>
+                            <td class="col-md-3">@x.Edited</td>
+                            <td class="col-md-3">@x.LentTo</td>
+                            <td class="col-md-3">@x.Notes</td>
+                            <td><form asp-action="EditForm"><input hidden name="movieID" id="movieID" value="@x.MovieId" /><input type="submit" value="Edit" class="shadow" /></form></td>
+                            <td>
+                                <form asp-action="DeleteMovie">
+                                    <input hidden name="movieID" id="movieID" value="@x.MovieId" />
+                                    <input type="submit" value="Delete" class="shadow" />
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>

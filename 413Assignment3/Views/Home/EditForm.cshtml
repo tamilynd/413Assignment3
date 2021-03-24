@@ -2,34 +2,32 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewBag.Title = "Movie Form";
 }
-
 @model Movie
 
 <div>
-    <h2 style="text-align:center">Adding titles to your collection?</h2>
-    <form method="post" asp-action="MovieForm" class="col-lg-6 offset-lg-3 ">
+    <h2 style="text-align:center">Movie Editing</h2>
+    <form method="post" asp-action="MovieUpdate" class="col-lg-6 offset-lg-3 ">
         <div class="justify-content-center">
-            <div class="align-content-center">
+            <div>
                 <label asp-for="Category">Category:</label>
-                <input asp-for="Category" required />
+                <input asp-for="Category" required value="@Model.Category" />
             </div>
-            <div class="align-content-center">
+            <div>
                 <label asp-for="Title">Title:</label>
-                <input asp-for="Title" required />
+                <input asp-for="Title" required value="@Model.Title" />
             </div>
-            <div class="align-content-center">
+            <div>
                 <label asp-for="Year">Year:</label>
-                <input asp-for="Year" required />
+                <input asp-for="Year" required value="@Model.Year" />
             </div>
-            <div class="align-content-center">
+            <div>
                 <label asp-for="Director">Director:</label>
-                <input asp-for="Director" required />
+                <input asp-for="Director" required value="@Model.Director" />
             </div>
-            <div class="justify-content-center">
+            <div>
                 <label asp-for="Rating">Rating:</label>
-                <select asp-for="Rating" required>
+                <select asp-for="Rating" required value="@Model.Rating">
                     <option value="">Select One</option>
                     <option value="G">G</option>
                     <option value="PG">PG</option>
@@ -37,23 +35,24 @@
                     <option value="R">R</option>
                 </select>
             </div>
-            <div class="justify-content-center">
+            <div>
                 <label asp-for="Edited">Edited?</label>
-                <select asp-for="Edited">
+                <select asp-for="Edited" value="@Model.Edited">
                     <option value="false">No</option>
                     <option value="true">Yes</option>
                 </select>
             </div>
-            <div class="justify-content-center">
+            <div>
                 <label asp-for="LentTo">Lent To?</label>
-                <input asp-for="LentTo" />
+                <input asp-for="LentTo" value="@Model.LentTo" />
             </div>
-            <div class="justify-content-center">
+            <div>
                 <label asp-for="Notes">Notes:</label>
-                <input asp-for="Notes" />
+                <input asp-for="Notes" value="@Model.Notes" />
             </div>
+            <input hidden asp-for="MovieId" value="@Model.MovieId" />
 
-            <button type="submit">Add Movie</button>
+            <button type="submit">Save Edits</button>
             <div asp-validation-summary="All"></div>
         </div>
     </form>

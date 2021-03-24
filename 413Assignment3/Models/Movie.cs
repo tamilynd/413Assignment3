@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace _413Assignment3.Models
 {
-    public class MovieForm
+    public class Movie
     {
+        [Key]
+        public int MovieId { get; set; }
+
         [Required]
         public string Category { get; set; }
         [Required]
